@@ -41,7 +41,7 @@ export default class Menu extends Component {
                                 <NavLink className="nav-link active" to="/" >Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Apuestas</a>
+                                <NavLink className="nav-link" to="/apuestas/">Apuestas</NavLink>
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Equipos</a>

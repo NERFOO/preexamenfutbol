@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom';
 import Global from '../Global';
 import loading from './../assets/images/img1.jpg';
 
@@ -29,33 +30,33 @@ export default class Jugadores extends Component {
     render() {
         if(this.state.status == false) {
             return(<div>
-                <img src={loading} />
+                <img src={loading} alt="cargando" />
             </div>)
         } else {
             return (<div>
-                <h1>Jugadores</h1>
-
+                <NavLink to="/" className="btn btn-success">Volver</NavLink>
                 {
                     this.state.jugadores.map((jugador, index) => {
-                        return(<table className="table table-success table-striped"  key={index}>
+                        return(<table className="table table-success table-striped" key={index} style={{gridTemplateColums:"auto"}}>
                             <thead>
                                 <tr>
-                                    <th scope="col">NOMBRE</th>
-                                    <th scope="col">IMAGEN</th>
-                                    <th scope="col">DETALLES</th>
+                                    <th>NOMBRE</th>
+                                    <th>IMAGEN</th>
+                                    <th>DETALLES</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr style={{}}>
                                     <td>{jugador.nombre}</td>
                                     <td><img src={jugador.imagen} style={{width:"50px"}} /></td>
-                                    <td><button className='btn btn-danger'>Detalles</button></td>
+                                    <td>
+                                        <NavLink to={'/jugador/' + jugador.idJugador} className='btn btn-danger'>Detalles</NavLink>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>)
                     })
                 }
-
             </div>)
         }
     }
