@@ -7,6 +7,7 @@ import Jugadores from './components/Jugadores';
 import Menu from './components/Menu';
 import Apuestas from './components/Apuestas';
 import Apuesta from './components/Apuesta';
+import DeleteApuesta from './components/DeleteApuesta';
 
 
 export default class Router extends Component {
@@ -28,16 +29,22 @@ export default class Router extends Component {
             return (<Jugador idJugador={idJugador}/>)
         }
 
+        function BorrarApuesta () {
+            var { idApuesta } = useParams();
+            return (<DeleteApuesta idApuesta={idApuesta}/>)
+        }
+
         return (<div>
             <BrowserRouter>
             <Menu />
                 <Routes>
                     <Route path='/' element={<Home />} />
-                    <Route path='/equipo/:idEquipo' element={<CargarEquipo />} />
-                    <Route path='/jugadores/:idEquipo' element={<CargarJugador />} />
-                    <Route path='/jugador/:idJugador' element={<CargarJugadorUnico />} />
-                    <Route path='/apuestas' element={<Apuestas />} />
-                    <Route path='/apuesta' element={<Apuesta />} />
+                    <Route path='/equipo/:idEquipo/' element={<CargarEquipo />} />
+                    <Route path='/jugadores/:idEquipo/' element={<CargarJugador />} />
+                    <Route path='/jugador/:idJugador/' element={<CargarJugadorUnico />} />
+                    <Route path='/apuestas/' element={<Apuestas />} />
+                    <Route path='/apuesta/' element={<Apuesta />} />
+                    <Route path='/delete/:idApuesta' element={<BorrarApuesta />} />
                 </Routes>
             </BrowserRouter>
         </div>)

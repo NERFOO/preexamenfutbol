@@ -33,7 +33,6 @@ export default class Apuestas extends Component {
             </div>)
         } else {
             return (<div>
-
                 <br /><NavLink to="/apuesta/" className="btn btn-danger">Realizar apuesta</NavLink><br />
 
                 <br /><h1 style={{color:"red"}}>Real Madrid vs Liverpool</h1><br />
@@ -45,6 +44,7 @@ export default class Apuestas extends Component {
                                     <th>USUARIO</th>
                                     <th>RESULTADO</th>
                                     <th>FECHA</th>
+                                    <th>OPCION</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,6 +52,7 @@ export default class Apuestas extends Component {
                                     <td>{apuesta.usuario}</td>
                                     <td>{apuesta.resultado}</td>
                                     <td>{apuesta.fecha}</td>
+                                    <td><NavLink to={"/delete/" + apuesta.idApuesta}   className='btn btn-danger'>Eliminar</NavLink></td>
                                 </tr>
                             </tbody>
                         </table>)
